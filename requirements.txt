@@ -1,0 +1,4 @@
+pandas==1.2.1
+streamlit==0.81.1
+streamlit-aggrid==0.1.9
+Pillow==8.1.0
