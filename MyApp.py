@@ -122,41 +122,148 @@ if session_state.Session is True:
             freight_value = detail['freight_value'].values[0]
             st.write(f'**Valor de envio**: {freight_value}')
     
+    imageTransit  = Image.open('Data/Banner_2.jpg')
+    st.image(imageTransit, use_column_width=True)
+
     st.header('Recomendaciones para ti!')
     user_cat = mt.get_user_behavior(userName)
-    st.write(f'Categoria predominante: {user_cat}')
+    if (user_cat == 'moveis_decoracao') | (user_cat == 'construcao_ferramentas_construcao'):
+        pass
+    else:
+        user_cat = 'oList'
+
+    Tmp_Reco = mt.getSVDReco(userName)
 
     Reco_1_Image, Reco_1_detail = st.beta_columns(2)
     with Reco_1_Image:
         Rec_1  = Image.open(f'Data/{user_cat}_1.jpg')
         st.image(Rec_1, use_column_width=True)
     with Reco_1_detail:
-        pass
+        Reco1_name = Tmp_Reco.iloc[0]['product_id']
+        st.subheader(f'1. {Reco1_name}')
+        Reco1_detail = mt.getProductDetail(Reco1_name)
+
+        Reco_1_Cat = Reco1_detail['product_category_name'].values[0]
+        st.write(f'**Categoria: ** {Reco_1_Cat}')
+        st.write()
+
+        Reco_1_Weight = Reco1_detail['product_weight_g'].values[0]
+        st.write(f'**Peso (gr): ** {Reco_1_Weight}')
+
+        st.write('**Medidas (cm)**')
+        Reco_1_Height = Reco1_detail['product_height_cm'].values[0]
+        st.write(f'Alto: {Reco_1_Height}')
+
+        Reco_1_width = Reco1_detail['product_width_cm'].values[0]
+        st.write(f'Alto: {Reco_1_width}')
+
+        Reco_1_length = Reco1_detail['product_length_cm'].values[0]
+        st.write(f'Alto: {Reco_1_length}')
+
 
     Reco_2_detail, Reco_2_Image = st.beta_columns(2)
     with Reco_2_detail:
-        pass
+        Reco2_name = Tmp_Reco.iloc[1]['product_id']
+        st.subheader(f'2. {Reco2_name}')
+        Reco2_detail = mt.getProductDetail(Reco2_name)
+
+        Reco_2_Cat = Reco2_detail['product_category_name'].values[0]
+        st.write(f'**Categoria: ** {Reco_2_Cat}')
+        st.write()
+
+        Reco_2_Weight = Reco2_detail['product_weight_g'].values[0]
+        st.write(f'**Peso (gr): ** {Reco_2_Weight}')
+
+        st.write('**Medidas (cm)**')
+        Reco_2_Height = Reco2_detail['product_height_cm'].values[0]
+        st.write(f'Alto: {Reco_2_Height}')
+
+        Reco_2_width = Reco2_detail['product_width_cm'].values[0]
+        st.write(f'Alto: {Reco_2_width}')
+
+        Reco_2_length = Reco2_detail['product_length_cm'].values[0]
+        st.write(f'Alto: {Reco_2_length}')
     with Reco_2_Image:
         Rec_2  = Image.open(f'Data/{user_cat}_2.jpg')
         st.image(Rec_2, use_column_width=True)
+
 
     Reco_3_Image, Reco_3_detail = st.beta_columns(2)
     with Reco_3_Image:
         Rec_3  = Image.open(f'Data/{user_cat}_3.jpg')
         st.image(Rec_3, use_column_width=True)
     with Reco_3_detail:
-        pass
+        Reco3_name = Tmp_Reco.iloc[2]['product_id']
+        st.subheader(f'3. {Reco3_name}')
+        Reco3_detail = mt.getProductDetail(Reco3_name)
+
+        Reco_3_Cat = Reco3_detail['product_category_name'].values[0]
+        st.write(f'**Categoria: ** {Reco_3_Cat}')
+        st.write()
+
+        Reco_3_Weight = Reco3_detail['product_weight_g'].values[0]
+        st.write(f'**Peso (gr): ** {Reco_3_Weight}')
+
+        st.write('**Medidas (cm)**')
+        Reco_3_Height = Reco3_detail['product_height_cm'].values[0]
+        st.write(f'Alto: {Reco_3_Height}')
+
+        Reco_3_width = Reco3_detail['product_width_cm'].values[0]
+        st.write(f'Alto: {Reco_3_width}')
+
+        Reco_3_length = Reco3_detail['product_length_cm'].values[0]
+        st.write(f'Alto: {Reco_3_length}')
+
 
     Reco_4_detail, Reco_4_Image = st.beta_columns(2)
     with Reco_4_detail:
-        pass
+        Reco4_name = Tmp_Reco.iloc[3]['product_id']
+        st.subheader(f'4. {Reco4_name}')
+        Reco4_detail = mt.getProductDetail(Reco4_name)
+
+        Reco_4_Cat = Reco4_detail['product_category_name'].values[0]
+        st.write(f'**Categoria: ** {Reco_4_Cat}')
+        st.write()
+
+        Reco_4_Weight = Reco4_detail['product_weight_g'].values[0]
+        st.write(f'**Peso (gr): ** {Reco_4_Weight}')
+
+        st.write('**Medidas (cm)**')
+        Reco_4_Height = Reco4_detail['product_height_cm'].values[0]
+        st.write(f'Alto: {Reco_4_Height}')
+
+        Reco_4_width = Reco4_detail['product_width_cm'].values[0]
+        st.write(f'Alto: {Reco_4_width}')
+
+        Reco_4_length = Reco4_detail['product_length_cm'].values[0]
+        st.write(f'Alto: {Reco_4_length}')
     with Reco_4_Image:
         Rec_4  = Image.open(f'Data/{user_cat}_4.jpg')
         st.image(Rec_4, use_column_width=True)
+
 
     Reco_5_Image, Reco_5_detail = st.beta_columns(2)
     with Reco_5_Image:
         Rec_5  = Image.open(f'Data/{user_cat}_5.jpg')
         st.image(Rec_5, use_column_width=True)
     with Reco_5_detail:
-        pass
+        Reco5_name = Tmp_Reco.iloc[4]['product_id']
+        st.subheader(f'5. {Reco5_name}')
+        Reco5_detail = mt.getProductDetail(Reco5_name)
+
+        Reco_5_Cat = Reco5_detail['product_category_name'].values[0]
+        st.write(f'**Categoria: ** {Reco_5_Cat}')
+        st.write()
+
+        Reco_5_Weight = Reco5_detail['product_weight_g'].values[0]
+        st.write(f'**Peso (gr): ** {Reco_5_Weight}')
+
+        st.write('**Medidas (cm)**')
+        Reco_5_Height = Reco5_detail['product_height_cm'].values[0]
+        st.write(f'Alto: {Reco_5_Height}')
+
+        Reco_5_width = Reco5_detail['product_width_cm'].values[0]
+        st.write(f'Alto: {Reco_5_width}')
+
+        Reco_5_length = Reco4_detail['product_length_cm'].values[0]
+        st.write(f'Alto: {Reco_5_length}')

@@ -39,6 +39,24 @@ def get_user_behavior(username):
         cat_list.append(item_cat)
     return mode(cat_list)
 
+def getItemsReco(username):
+    user_Test = Cf_Df.loc[Cf_Df['customer_id'] == username, 'product_id']
+    product_to_predict = np.setdiff1d(unique_ids,user_Test)
+    return product_to_predict
+
+def getSVDReco(username):
+    my_recs = []
+    items = getItemsReco(username)
+    for iid in items:
+        my_recs.append((iid, SVD.predict(uid = username, iid = iid).est))
+    Result = pd.DataFrame(my_recs, columns=['product_id', 'predictions']).sort_values('predictions', ascending=False).head(10)
+    #Final_Result = TranslateReco(Result, state, city, cat)
+    return Result
+
+def getProductDetail(product_id):
+    Result = Products[Products['product_id'] == product_id]
+    return Result
+
 # Cargue de usuarios
 try:
     Users = pd.read_csv('Data/Df_Users.csv')
@@ -60,5 +78,20 @@ try:
 except Exception as Ex:
     print(f'Error al cargar Productos: {Ex}')
 print('Prod Loaded! ')
+
+# Cargue de modelo SVD
+try:
+    SVD = pickle.load(open('Data/Models/SVD_BA.pkl', 'rb'))
+except Exception as Ex:
+    print(f'Error al cargar el modelo: {Ex}')
+print('SVD Model Loaded! ')
+
+# Cargue de DF para el Modelo
+try:
+    Cf_Df = pd.read_csv('Data/CF_Df.csv')
+    unique_ids = Cf_Df['product_id'].unique()
+except Exception as Ex:
+    print(f'Error al cargar reviews: {Ex}')
+print('Revs Loaded! ')
 
 print('All loaded!')
