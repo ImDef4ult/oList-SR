@@ -44,6 +44,7 @@ def getItemsReco(username):
     product_to_predict = np.setdiff1d(unique_ids,user_Test)
     return product_to_predict
 
+@st.cache(allow_output_mutation=True)
 def getSVDReco(username):
     my_recs = []
     items = getItemsReco(username)

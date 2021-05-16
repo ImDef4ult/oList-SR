@@ -55,15 +55,33 @@ if session_state.Session is False:
         st.image(YelpLogo, use_column_width=True)
     with oListExplain:
         st.write('''
-        Yelp es una herramienta que nace con el fin de facilitarle la vida a las personas poniendo a su disposición una 
-        plataforma con la que encontrar los mejores negocios de su barrio o de su ciudad. De esta forma, Yelp también 
-        apoya el comercio de local y de proximidad.
-        
-        Dentro de las fuentes de datos, se pueden encontrar varios archivos .json con informacion acerca de:
-        - Detalles de los locales (Localizacion, categoria, horarios, etc)
-        - Usuarios
-        - Reviews de los usuarios hacia los locales con su respectivo puntaje
-        - Recomendaciones realizadas por usuarios especificos acerca de un local
+        olist es una empresa de tecnología del tipo SaaS (Software as a Service) fundada en 2015 
+        que ofrece una solución para el aumento de las ventas de comerciantes de todos los tamaños, 
+        para la mayoría de los segmentos, que tengan presencia en línea o no.
+
+        La solución de olist se compone de tres frentes: Software, contratos con los principales 
+        mercados y compartición de reputación. Estos tres frentes juntos forman el servicio inédito 
+        de olist, sin comparación con cualquier otro servicio existente en el mundo.
+
+        El cliente olist cuenta con las ventajas específicas de cada uno de los frentes, 
+        como por ejemplo:
+
+            – Software: Gestión de pedidos centralizados (pedidos de cualquiera de los diversos 
+            marketplaces administrados en una sola plataforma), datos para envío, generación de 
+            etiquetas personalizadas, entre otros servicios.
+
+            – Contratos exclusivos: olist cuenta con contratos ya firmados con los principales 
+            marketplaces de Brasil, además de un contrato extremadamente ventajoso con los Correos. 
+            Por medio de olist – y de sólo un contrato – comerciantes pueden comenzar a vender en 
+            varios marketplaces, acortando caminos para el aumento de las ventas. No es necesario 
+            tener contratos directos con los marketplaces. Tú utilizas nuestro contrato y listo!
+
+            – Compartición de reputación: Como olist es también una gran tienda de departamentos, 
+            todas las ventas realizadas en olist dentro de los marketplaces generan altísima 
+            reputación que es compartida entre todos los comerciantes participantes. Incluso los 
+            comerciantes recién iniciados en el mundo de las ventas pueden beneficiarse de espacios 
+            privilegiados, campañas y otras facilidades que sólo un servicio como el de olist puede 
+            ofrecer.
         ''')
 
 if session_state.Session is True:
